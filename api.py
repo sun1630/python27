@@ -1,8 +1,13 @@
 # -*- coding:utf-8 -*-
 
 from flask import Flask,request
+from flask_cors import CORS
 
 app=Flask(__name__)
+
+# 允许 hw请求 跨域  http://flask-cors.readthedocs.io/en/latest/
+CORS(app,resources=({r"/hw/*": {"origins": "*"}}))
+
 # GET
 # 方式一 get http://localhost:1222/hw?num1=1&num2=2
 @app.route('/hw',methods=['GET','POST'])
