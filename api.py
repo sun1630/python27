@@ -5,8 +5,6 @@ from flask import Flask,request
 from flask_cors import CORS
 from xiaomi_beautifulsoup import xmApi
 
-
-
 app=Flask(__name__)
 
 # 允许 hw请求 跨域  http://flask-cors.readthedocs.io/en/latest/
