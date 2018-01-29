@@ -46,6 +46,7 @@ def shopInfoByCategory(res):
     return json.dumps(shop, ensure_ascii=False)
 
 # 入口接入
+# 尚未完善 抓取等待时间，iP代理
 def xmApi():
     res=xmUrl()
     json=shopInfoByCategory(res)
