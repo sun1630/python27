@@ -14,8 +14,7 @@ def xmUrl():
         res.encoding='utf-8'
         #print(res.text)
     except BaseException:
-        print('api Error：接口地址异常')
-        raise Exception("api Error：接口地址异常") #抛出异常欣喜
+        raise Exception("api Error：接口地址异常") #抛出异常信息
     return res
 
 
