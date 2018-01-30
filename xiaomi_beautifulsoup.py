@@ -3,14 +3,15 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from collections import OrderedDict
-
-# beautifulSoup4 处理小米商城秒杀HTML
+import time
 
 # 抓取小米商城页面HTML
+# 2018-1-30 update: Add proxy function
 def xmUrl():
     res=False
     try:
-        res = requests.get("https://list.mi.com")
+        proxies = {"https": "http://211.159.177.212:3128" }  # 设置代理
+        res = requests.get("https://list.mi.com", proxies=proxies)
         res.encoding='utf-8'
         #print(res.text)
     except BaseException:
@@ -46,8 +47,10 @@ def shopInfoByCategory(res):
 
 # 入口接入
 # 尚未完善 抓取等待时间，iP代理
+# 2018-1-30 设置等待时间
 def xmApi():
     res=xmUrl()
+    time.sleep(0.5)  # 单位秒 等待0.5秒
     json=shopInfoByCategory(res)
     return json
 
