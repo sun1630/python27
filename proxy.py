@@ -7,19 +7,22 @@ from tkinter import *
 root = Tk()
 root.title('代理IP!')    # 添加 初识框的标题
 
-httpValue=StringVar()
-httpValues=StringVar()
-
+# 第一行
+proxyTypeValue=IntVar()
 Label(root,text="代理类型：").grid(row=0,column=0,sticky="w")
+httpRdo = Radiobutton(root, text='HTTP', variable=proxyTypeValue,value="1")
+httpRdo.grid(row=0,column=1, sticky=W)
+httpsRdo = Radiobutton(root, text='HTTPS', variable=proxyTypeValue,value="2")
+httpsRdo.grid(row=0,column=2, sticky=W)
 
+# 第二行
+highHideValue=IntVar()
+Label(root,text="是否匿名：").grid(row=1,column=0,sticky="w")
+highHideRdo = Radiobutton(root, text='高匿', variable=highHideValue,value="1")
+highHideRdo.grid(row=1,column=1, sticky=W)
+hyalineRdo = Radiobutton(root, text='透明', variable=highHideValue,value="2")
+hyalineRdo.grid(row=1,column=2, sticky=W)
 
-def callCheckbutton():
-    httpValue.set("aaaaa");
-
-httpChk = Checkbutton(root, text='HTTP', variable=httpValue,command = callCheckbutton).pack()
-httpChk.grid(row=0,column=1, sticky=W)
-httpsChk = Checkbutton(root, text='HTTPS',value="https", variable=httpValues)
-httpsChk.grid(row=0,column=2, sticky=W)
 
 
 
